@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("../partials/header") %>
+  </head>
+  <body class="bg-gradient-to-b from-gray-100 to-gray-300 text-gray-800">
+    <div class="container mx-auto p-5 flex justify-center items-center min-h-screen">
+      
+      <!-- Pokémon Card -->
+      <div class="relative bg-white  shadow-2xl rounded-2xl p-8 w-full max-w-sm text-center"
+      style="background-image: url('https://www.pngitem.com/pimgs/m/531-5314364_gaming-emoji-discord-emoji-pokemon-black-and-white.png'); background-size: cover; background-position: center;">
+      
+      <!-- Overlay for readability -->
+      <div class="bg-white bg-opacity-5 p-6 rounded-2xl">
+
+      <!-- Pokémon Name -->
+      <h1 class="text-4xl font-extrabold mb-5  text-gray-900">
+      <%= pokemon.name %>
+      </h1>
+
+      <!-- Pokémon Image -->
+      <div class="flex flex-col items-center">
+      <div class="bg-gray-200 p-5 rounded-xl shadow-md hover:shadow-lg transition">
+        <img
+          src="<%= pokemon.sprites.front_default %>"
+          alt="<%= pokemon.name %>"
+          class="w-44 h-44 drop-shadow-lg"
+        />
+      </div>
+
+      <!-- Pokémon Info -->
+      <div class="mt-6 space-y-3 text-gray-700">
+        <p class="text-lg font-medium">Height: 
+          <span class="font-bold text-gray-900"><%= pokemon.height %></span>
+        </p>
+        <p class="text-lg font-medium">Weight: 
+          <span class="font-bold text-gray-900"><%= pokemon.weight %></span>
+        </p>
+        <p class="text-lg font-medium">Type: 
+          <span class="font-bold text-gray-900"><%= pokemon.types.map(t => t.type.name).join(', ') %></span>
+        </p>
+        <p class="text-lg font-medium flex justify-between">
+          Base Experience: <span class="font-bold text-gray-900"><%= pokemon.base_experience %></span>
+        </p>
+      </div>
+      </div>
+
+      <!-- Back Button -->
+      <div class="mt-6">
+      <a href="/" class="px-6 py-3 bg-blue-500 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:scale-105 transition">
+        Back
+      </a>
+      </div>
+      </div>
+      </div>
+
+    </div>
+    <%- include("../partials/footer") %>
+  </body>
+</html>
